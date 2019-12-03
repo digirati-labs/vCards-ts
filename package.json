@@ -1,0 +1,34 @@
+{
+  "name": "@p-kaczynski/vCards-ts",
+  "version": "0.1.0",
+  "main": "dist/umd/@p-kaczynski/vCards-ts.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "author": "Pawel Kaczynski <pawel@kaczynski.scot>",
+  "license": "MIT",
+  "scripts": {
+    "build": "fesk-build --cjs --umd && tsc -p ./ --emitDeclarationOnly",
+    "start": "fesk-start --cjs --noServer",
+    "test": "jest",
+    "build-types": "tsc -p ./ --emitDeclarationOnly",
+    "prepare": "NODE_ENV=production fesk-build --cjs --umd && tsc -p ./ --emitDeclarationOnly"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@fesk/babel-config": "^1.2.2",
+    "@fesk/scripts": "^1.2.1",
+    "@types/jest": "^24.0.17",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "fesk": {
+    "typescript": true
+  }
+}
