@@ -10,6 +10,8 @@ export type vCardPhoto = {
 
 export type vCardMailingAddress = {
   label?: string;
+  poBox?: string;
+  extendedAddress?: string;
   street?: string;
   city?: string;
   stateProvince?: string;

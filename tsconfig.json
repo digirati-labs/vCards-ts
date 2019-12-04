@@ -21,7 +21,7 @@
     "target": "es2015", // "es2015" for ES6+ engines
     "module": "es2015", // "es2015" for tree-shaking
     "moduleResolution": "node",
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,

@@ -44,7 +44,9 @@ export class vCardFormatter {
 
       if (majorVersion >= 4) {
         formattedAddress = 'ADR' + encodingPrefix + ';TYPE=' + address.type +
-          (address.details.label ? ';LABEL="' + vCardFormatter.e(address.details.label) + '"' : '') + ':;;' +
+          (address.details.label ? ';LABEL="' + vCardFormatter.e(address.details.label) + '"' : '') + ':' +
+          vCardFormatter.e(address.details.poBox) + ';' +
+          vCardFormatter.e(address.details.extendedAddress) + ';' +
           vCardFormatter.e(address.details.street) + ';' +
           vCardFormatter.e(address.details.city) + ';' +
           vCardFormatter.e(address.details.stateProvince) + ';' +
@@ -83,7 +85,8 @@ export class vCardFormatter {
     if (!formattedName) {
 
       [vCard.firstName, vCard.middleName, vCard.lastName]
-        .forEach(function(name) {
+        .map(n=>n || '')
+        .forEach(function(name: string) {
           if (name) {
             if (formattedName) {
               formattedName += ' ';
@@ -328,9 +331,8 @@ export class vCardFormatter {
     }
 
     if (vCard.socialUrls) {
-      for (let key in vCard.socialUrls) {
-        if (vCard.socialUrls.hasOwnProperty(key) &&
-          vCard.socialUrls.has(key)) {
+      for (let key in vCard.socialUrls.keys()) {
+        if (vCard.socialUrls.has(key)) {
           formattedVCardString += 'X-SOCIALPROFILE;TYPE=' + key + ':' +vCardFormatter.e(vCard.socialUrls.get(key)) +vCardFormatter.nl();
         }
       }
