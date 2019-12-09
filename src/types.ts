@@ -3,9 +3,9 @@ export type vCardPhoto = {
   mediaType?: string;
   base64: boolean;
 
-  attachFromUrl: (url: String, mediaType: String) => void;
-  embedFromFile: (fileLocation: String) => void;
-  embedFromString: (base64String: String, mediaType: String) => void;
+  attachFromUrl?: (url: String, mediaType: String) => void;
+  embedFromFile?: (fileLocation: String) => void;
+  embedFromString?: (base64String: String, mediaType: String) => void;
 }
 
 export type vCardMailingAddress = {
