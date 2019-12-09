@@ -1,4 +1,4 @@
-import {vCardAddress, vCardAddressType} from "./types";
+import {vCardAddress, vCardAddressType, vCardFormattingOptions} from "./types";
 import {vCard} from "./vCard"
 
 export class vCardFormatter {
@@ -72,14 +72,19 @@ export class vCardFormatter {
     return date.getFullYear() + ('0' + (date.getMonth()+1)).slice(-2) + ('0' + date.getDate()).slice(-2);
   }
 
-  public static getFormattedString(vCard: vCard) : string {
+  public static getFormattedString(vCard: vCard, options? : vCardFormattingOptions) : string {
+    if(options == undefined){
+      // set defaults
+      options = { skipCharset: false, skipShowAs: false, skipRevision: false};
+    }
+
     const majorVersion = vCard.getMajorVersion();
 
     let formattedVCardString = '';
     formattedVCardString += 'BEGIN:VCARD' +vCardFormatter.nl();
     formattedVCardString += 'VERSION:' + vCard.version +vCardFormatter.nl();
 
-    const encodingPrefix = majorVersion >= 4 ? '' : ';CHARSET=UTF-8';
+    const encodingPrefix = majorVersion >= 4 || options.skipCharset ? '' : ';CHARSET=UTF-8';
     let formattedName = vCard.formattedName || '';
 
     if (!formattedName) {
@@ -342,9 +347,11 @@ export class vCardFormatter {
       formattedVCardString += 'SOURCE' + encodingPrefix + ':' +vCardFormatter.e(vCard.source) +vCardFormatter.nl();
     }
 
-    formattedVCardString += 'REV:' + (new Date()).toISOString() +vCardFormatter.nl();
+    if(!options.skipRevision){
+      formattedVCardString += 'REV:' + (new Date()).toISOString() +vCardFormatter.nl();
+    }
 
-    if (vCard.organization) {
+    if (vCard.organization && !options.skipShowAs) {
       formattedVCardString += 'X-ABShowAs:COMPANY' +vCardFormatter.nl();
     }
 
