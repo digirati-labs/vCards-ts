@@ -1,6 +1,6 @@
 {
   "name": "vcards-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/umd/vCards-ts.js",
   "description": "TypeScript vCard integration",
   "git-repository": "https://github.com/digirati-labs/vCards-ts",
