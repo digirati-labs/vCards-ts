@@ -29,3 +29,8 @@ export enum vCardAddressType {
   WORK = 'WORK'
 }
 
+export interface vCardFormattingOptions  {
+  skipCharset: boolean,
+  skipShowAs: boolean,
+  skipRevision: boolean
+}
