@@ -1,6 +1,7 @@
 import {vCardMailingAddress, vCardPhoto} from "./types";
 import {vCardFormatter} from "./vCardFormatter";
-import {vCardFormattingOptions} from "../lib";
+import {vCardFormattingOptions}from "./types";
+
 
 export class vCard {
   constructor(){
