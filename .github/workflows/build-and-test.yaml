@@ -25,4 +25,4 @@ jobs:
       - name: Typescript validation
         with:
           node-version: 12.x
-        run: yarn tsc --noEmit
+      - run: yarn tsc --noEmit
