@@ -1,5 +1,6 @@
 import {vCardMailingAddress, vCardPhoto} from "./types";
 import {vCardFormatter} from "./vCardFormatter";
+import {vCardFormattingOptions} from "../lib";
 
 export class vCard {
   constructor(){
@@ -50,7 +51,7 @@ export class vCard {
     return 4;
   }
 
-  public getFormattedString(): string {
-    return vCardFormatter.getFormattedString(this);
+  public getFormattedString(options? : vCardFormattingOptions): string {
+    return vCardFormatter.getFormattedString(this, options);
   };
 }
