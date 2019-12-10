@@ -53,7 +53,4 @@ export class vCard {
   public getFormattedString(): string {
     return vCardFormatter.getFormattedString(this);
   };
-  public saveToFile(): void{
-    // TODO
-  }
 }
