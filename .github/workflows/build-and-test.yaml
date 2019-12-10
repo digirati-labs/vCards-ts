@@ -23,6 +23,7 @@ jobs:
           yarn build
           yarn test
       - name: Typescript validation
+        uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - run: yarn tsc --noEmit
