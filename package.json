@@ -3,7 +3,10 @@
   "version": "1.0.6",
   "main": "dist/umd/vCards-ts.js",
   "description": "TypeScript vCard integration",
-  "git-repository": "https://github.com/digirati-labs/vCards-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digirati-labs/vCards-ts.git"
+  },
   "entry": "lib/index.ts",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
