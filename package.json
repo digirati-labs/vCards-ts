@@ -1,7 +1,7 @@
 {
   "name": "vcards-ts",
   "version": "1.0.6",
-  "main": "dist/umd/vCards-ts.js",
+  "main": "dist/umd/vcards-ts.js",
   "description": "TypeScript vCard integration",
   "repository": {
     "type": "git",
