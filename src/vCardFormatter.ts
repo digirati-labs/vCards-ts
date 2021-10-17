@@ -336,7 +336,7 @@ export class vCardFormatter {
     }
 
     if (vCard.socialUrls) {
-      for (let key in vCard.socialUrls.keys()) {
+      for (let key of vCard.socialUrls.keys()) {
         if (vCard.socialUrls.has(key)) {
           formattedVCardString += 'X-SOCIALPROFILE;TYPE=' + key + ':' +vCardFormatter.e(vCard.socialUrls.get(key)) +vCardFormatter.nl();
         }
